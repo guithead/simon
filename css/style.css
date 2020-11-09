@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  background-color: #011f3f;
+  font-family: "Press Start 2P", cursive;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#instructions {
+  font-size: 2rem;
+  line-height: 3.5rem;
+  margin: 80px auto;
+  color: #fef2bf;
+  height: 150px;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+/*INTRO PAGE*/
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  color: #fffaf1;
+}
+
+.play {
+  display: flex;
+  justify-items: flex-start;
+  width: 100%;
+}
+
+.fas {
+  padding: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: auto;
+}
+
+.title h1 {
+  font-size: 5rem;
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+}
+
+.title h2 {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+
+.btn-start {
+  margin-top: 10rem;
+  padding: 2rem;
+}
+
+.btn-start a {
+  text-decoration: none;
+  color: #011f3f;
+  background: #fffaf1;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+@media (hover: hover) {
+  .btn-start a:hover {
+    color: #fffaf1;
+    background: #027320;
+  }
+}
+
+.btn-start a:active {
+  color: #fffaf1;
+  background: #027320;
+}
+
+footer {
+  margin-top: auto;
+}
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*test*/
+.cntr {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  margin: 3rem auto;
+  border-radius: 50%;
+}
+
+.settings {
+  position: absolute;
+  font-size: 1.4rem;
+  width: 225px;
+  height: 225px;
+  background-color: white;
+  border-radius: 50%;
+  border: solid 20px black;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  width: 40%;
+  height: 40%;
+  margin: 0 auto;
+}
+
+.red,
+.blue {
+  margin-top: 40px;
+}
+.red {
+  background-color: red;
+  border-radius: 100% 0 0 0;
+  margin-right: 20px;
+}
+.blue {
+  background-color: blue;
+  border-radius: 0 100% 0 0;
+}
+.green,
+.yellow {
+  margin-top: 35px;
+}
+.green {
+  background-color: green;
+  border-radius: 0 0 0 100%;
+  margin-right: 20px;
+}
+.yellow {
+  background-color: yellow;
+  border-radius: 0 0 100% 0;
+}
