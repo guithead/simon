@@ -1,4 +1,4 @@
-window.onload = function () {
+$(document).ready(function () {
   var sound = new Audio("sounds/theme.mp3");
   sound.play();
   sound.loop = true;
@@ -19,4 +19,4 @@ window.onload = function () {
   }
 
   $("#play-pause").on("click", boom);
-};
+});

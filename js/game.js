@@ -1,4 +1,9 @@
 $(document).ready(function () {
+  /*if (window.matchMedia("(max-width: 999px)").matches) {
+    // The viewport is less than 768 pixels wide
+    document.write("Fok OFF");
+  }*/
+
   /*
     VARIABLES
   */
@@ -13,16 +18,6 @@ $(document).ready(function () {
   /*
     ACTIONS
   */
-
-  //INTRO ACTIONS
-  $(".wrapper").hide().fadeIn(1000);
-
-  var arka = new Audio("sounds/arkanoid.mp3");
-  arka.play();
-
-  setTimeout(function () {
-    instructions.text("Press Any Key to Start");
-  }, 2000);
 
   //ACTIONS ON BUTTON PRESS
   $(".btn").on("click", function () {
@@ -41,10 +36,45 @@ $(document).ready(function () {
     checkAnswer(userClickedPattern.length - 1);
   });
 
-  //START THE GAME BY PRESSING ANY KEY
-  $(document).on("keydown touchstart", function () {
-    if (!sequenceStarted) {
-      nextSequence();
+  //START GAME - KEYBOARD
+
+  //prevent multiple firings by pressing/holding multiple keys
+  var keydown = false;
+
+  $(document).on("keydown", function () {
+    if (!keydown) {
+      if (!sequenceStarted) {
+        keydown = true;
+        //$("#level-no").text("Simon");
+        var arka = new Audio("sounds/arkanoid.mp3");
+        arka.play();
+        instructions.text("Follow the pattern by clicking the pads!");
+        //wait for arka to play
+        setTimeout(nextSequence, 2000);
+      }
+    } else {
+      return;
+    }
+  });
+
+  //START GAME - TOUCH
+
+  //prevent multiple firings by pressing/holding multiple keys
+  var touch = false;
+
+  $(document).on("touchend", ".any-key", function () {
+    if (!touch) {
+      if (!sequenceStarted) {
+        touch = true;
+
+        var arka = new Audio("sounds/arkanoid.mp3");
+        arka.play();
+        instructions.text("Follow the pattern by tapping the pads!");
+        //wait for arka to play
+        setTimeout(nextSequence, 2000);
+      }
+    } else {
+      return;
     }
   });
 
@@ -62,11 +92,11 @@ $(document).ready(function () {
     //reset array when starting new level
     userClickedPattern = [];
 
-    //update level no. in title
-    $("#level-no").text("Level " + levelNo);
-
     //remove any key hint
     instructions.text("");
+
+    //update level no. in title
+    $("#level-no").text("Level " + levelNo);
 
     //get random no. 0-3 (4 colors)
     var randomNumber = Math.floor(Math.random() * 4);
@@ -103,7 +133,11 @@ $(document).ready(function () {
       }, 200);
 
       //update text
-      instructions.text("Game Over, Press Any Key to Restart");
+      instructions.text("Press Any Key to Restart the Game");
+      //for touch devices to be able to restart by tapping "any key"
+      instructions.addClass("any-key");
+
+      $("#level-no").text("Game Over");
 
       var wrongSound = new Audio("sounds/wrong.mp3");
       wrongSound.play();
@@ -133,5 +167,7 @@ $(document).ready(function () {
     levelNo = 0;
     gamePattern = [];
     sequenceStarted = false;
+    keydown = false;
+    touch = false;
   }
 });

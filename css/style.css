@@ -1,24 +1,103 @@
 * {
   box-sizing: border-box;
+  /*touch-action: manipulation;*/
 }
+
+/*GAME PAGE*/
 
 body {
   text-align: center;
   background-color: #011f3f;
   font-family: "Press Start 2P", cursive;
   margin: 0;
-  padding: 0;
+  padding: 0 2rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#game {
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #instructions {
   font-size: 2rem;
   line-height: 3.5rem;
-  margin: 80px auto;
+  margin: 2.5rem auto;
+  margin-bottom: 0;
   color: #fef2bf;
   height: 150px;
+}
+
+.cntr {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  margin: 3rem auto;
+  border-radius: 50%;
+}
+
+.level {
+  position: absolute;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  width: 225px;
+  height: 225px;
+  background-color: #fffaf1;
+  border-radius: 50%;
+  border: solid 20px black;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  width: 40%;
+  height: 40%;
+  margin: 0 auto;
+}
+
+.red,
+.blue {
+  margin-top: 40px;
+}
+.red {
+  background-color: red;
+  border-radius: 100% 0 0 0;
+  margin-right: 20px;
+}
+.blue {
+  background-color: blue;
+  border-radius: 0 100% 0 0;
+}
+.green,
+.yellow {
+  margin-top: 35px;
+}
+.green {
+  background-color: green;
+  border-radius: 0 0 0 100%;
+  margin-right: 20px;
+}
+.yellow {
+  background-color: yellow;
+  border-radius: 0 0 100% 0;
 }
 
 .game-over {
@@ -34,13 +113,10 @@ body {
 /*INTRO PAGE*/
 
 #intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   width: 100vw;
   color: #fffaf1;
+  padding: 0;
 }
 
 .play {
@@ -104,63 +180,115 @@ footer a {
   color: inherit;
 }
 
-/*test*/
-.cntr {
-  position: relative;
-  width: 600px;
-  height: 600px;
-  background-color: black;
-  margin: 3rem auto;
-  border-radius: 50%;
+/*MEDIA QUERIES*/
+
+@media screen and (max-width: 1024px) {
+  #instructions {
+    height: 7rem;
+    margin-bottom: 2rem;
+  }
+
+  .cntr {
+    width: 450px;
+    height: 450px;
+  }
+
+  .level {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    width: 168.75px;
+    height: 168.75px;
+    border: solid 15px black;
+  }
+
+  .red,
+  .blue {
+    margin-top: 30px;
+  }
+  .red {
+    margin-right: 15px;
+  }
+  .blue {
+    border-radius: 0 100% 0 0;
+  }
+  .green,
+  .yellow {
+    margin-top: 26.25px;
+  }
+  .green {
+    margin-right: 15px;
+  }
 }
 
-.settings {
-  position: absolute;
-  font-size: 1.4rem;
-  width: 225px;
-  height: 225px;
-  background-color: white;
-  border-radius: 50%;
-  border: solid 20px black;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+@media screen and (max-width: 550px) {
+  #instructions {
+    font-size: 1rem;
+    line-height: 2rem;
+    height: 4rem;
+    margin-bottom: 0;
+  }
+
+  .cntr {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 25%;
+  }
+
+  .level {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    width: 112.5px;
+    height: 112.5px;
+    border: solid 10px black;
+  }
+
+  .red,
+  .blue {
+    margin-top: 20px;
+  }
+  .red {
+    margin-right: 10px;
+  }
+
+  .green,
+  .yellow {
+    margin-top: 17.5px;
+  }
+  .green {
+    margin-right: 10px;
+  }
 }
 
-.btn {
-  display: inline-block;
-  width: 40%;
-  height: 40%;
-  margin: 0 auto;
-}
+@media screen and (max-width: 400px) {
+  .cntr {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    margin: 3rem auto;
+    border-radius: 25%;
+  }
 
-.red,
-.blue {
-  margin-top: 40px;
-}
-.red {
-  background-color: red;
-  border-radius: 100% 0 0 0;
-  margin-right: 20px;
-}
-.blue {
-  background-color: blue;
-  border-radius: 0 100% 0 0;
-}
-.green,
-.yellow {
-  margin-top: 35px;
-}
-.green {
-  background-color: green;
-  border-radius: 0 0 0 100%;
-  margin-right: 20px;
-}
-.yellow {
-  background-color: yellow;
-  border-radius: 0 0 100% 0;
+  .level {
+    width: 75px;
+    height: 75px;
+    border: solid 6.66px black;
+  }
+
+  .red,
+  .blue {
+    margin-top: 13.33px;
+  }
+  .red {
+    margin-right: 6.66px;
+  }
+
+  .green,
+  .yellow {
+    margin-top: 11.66px;
+  }
+  .green {
+    margin-right: 6.66px;
+  }
 }
