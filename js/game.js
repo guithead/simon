@@ -1,9 +1,4 @@
 $(document).ready(function () {
-  /*if (window.matchMedia("(max-width: 999px)").matches) {
-    // The viewport is less than 768 pixels wide
-    document.write("Fok OFF");
-  }*/
-
   /*
     VARIABLES
   */
@@ -14,26 +9,32 @@ $(document).ready(function () {
   var sequenceStarted = false;
   var levelNo = 0;
   var instructions = $("#instructions");
+  var levelText = $("#level-text");
 
   /*
     ACTIONS
   */
 
   //ACTIONS ON BUTTON PRESS
+
   $(".btn").on("click", function () {
-    var userChosenColor = $(this).attr("id");
+    if (!sequenceStarted) {
+      return;
+    } else {
+      var userChosenColor = $(this).attr("id");
 
-    //store user clicks (colors) in userClickedPattern array
-    userClickedPattern.push(userChosenColor);
+      //store user clicks (colors) in userClickedPattern array
+      userClickedPattern.push(userChosenColor);
 
-    //button sound
-    playSound(userChosenColor);
+      //button sound
+      playSound(userChosenColor);
 
-    //pressed button animation function
-    animateButtonPress(userChosenColor);
+      //pressed button animation function
+      animateButtonPress(userChosenColor);
 
-    //calls fn. checkAnswer, argument = index in array
-    checkAnswer(userClickedPattern.length - 1);
+      //calls fn. checkAnswer, argument = index in array
+      checkAnswer(userClickedPattern.length - 1);
+    }
   });
 
   //START GAME - KEYBOARD
@@ -46,9 +47,8 @@ $(document).ready(function () {
       if (!sequenceStarted) {
         keydown = true;
 
-        $("#level-no").text("Get ready");
+        levelText.text("Get ready");
 
-        //var arka = new Audio("sounds/arkanoid.mp3");
         var arka = new Howl({
           src: ["sounds/arkanoid.mp3"],
         });
@@ -72,9 +72,8 @@ $(document).ready(function () {
       if (!sequenceStarted) {
         touch = true;
 
-        $("#level-no").text("Get ready");
+        levelText.text("Get ready");
 
-        //var arka = new Audio("sounds/arkanoid.mp3");
         var arka = new Howl({
           src: ["sounds/arkanoid.mp3"],
         });
@@ -106,7 +105,7 @@ $(document).ready(function () {
     instructions.text("");
 
     //update level no. in title
-    $("#level-no").text("Level " + levelNo);
+    levelText.text("Level " + levelNo);
 
     //get random no. 0-3 (4 colors)
     var randomNumber = Math.floor(Math.random() * 4);
@@ -147,7 +146,7 @@ $(document).ready(function () {
       //for touch devices to be able to restart by tapping "any key"
       instructions.addClass("any-key");
 
-      $("#level-no").text("Game Over");
+      levelText.text("Game Over");
 
       //var wrongSound = new Audio("sounds/wrong.mp3");
       var wrongSound = new Howl({
@@ -162,7 +161,6 @@ $(document).ready(function () {
 
   //PLAY BUTTON SOUND (BASED ON COLOR)
   function playSound(color) {
-    //var buttonSound = new Audio("sounds/" + color + ".mp3");
     var buttonSound = new Howl({
       src: ["sounds/" + color + ".mp3"],
     });
