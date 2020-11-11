@@ -3,8 +3,6 @@
   touch-action: manipulation;
 }
 
-/*GAME PAGE*/
-
 body {
   text-align: center;
   background-color: #011f3f;
@@ -15,9 +13,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
 }
+
+/*GAME PAGE*/
 
 #game {
   animation: fadein 2s;
@@ -208,18 +206,14 @@ footer a {
   .blue {
     margin-top: 30px;
   }
-  .red {
+  .red,
+  .green {
     margin-right: 15px;
   }
-  .blue {
-    border-radius: 0 100% 0 0;
-  }
+
   .green,
   .yellow {
     margin-top: 26.25px;
-  }
-  .green {
-    margin-right: 15px;
   }
 }
 
@@ -280,16 +274,14 @@ footer a {
   .blue {
     margin-top: 20px;
   }
-  .red {
+  .red,
+  .green {
     margin-right: 10px;
   }
 
   .green,
   .yellow {
     margin-top: 17.5px;
-  }
-  .green {
-    margin-right: 10px;
   }
 }
 
@@ -313,15 +305,13 @@ footer a {
   .blue {
     margin-top: 13.33px;
   }
-  .red {
+  .red,
+  .green {
     margin-right: 6.66px;
   }
 
   .green,
   .yellow {
     margin-top: 11.66px;
-  }
-  .green {
-    margin-right: 6.66px;
   }
 }
