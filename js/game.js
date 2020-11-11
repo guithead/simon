@@ -45,8 +45,13 @@ $(document).ready(function () {
     if (!keydown) {
       if (!sequenceStarted) {
         keydown = true;
-        //$("#level-no").text("Simon");
-        var arka = new Audio("sounds/arkanoid.mp3");
+
+        $("#level-no").text("Get ready");
+
+        //var arka = new Audio("sounds/arkanoid.mp3");
+        var arka = new Howl({
+          src: ["sounds/arkanoid.mp3"],
+        });
         arka.play();
         instructions.text("Follow the pattern by clicking the pads!");
         //wait for arka to play
@@ -67,7 +72,12 @@ $(document).ready(function () {
       if (!sequenceStarted) {
         touch = true;
 
-        var arka = new Audio("sounds/arkanoid.mp3");
+        $("#level-no").text("Get ready");
+
+        //var arka = new Audio("sounds/arkanoid.mp3");
+        var arka = new Howl({
+          src: ["sounds/arkanoid.mp3"],
+        });
         arka.play();
         instructions.text("Follow the pattern by tapping the pads!");
         //wait for arka to play
@@ -139,7 +149,10 @@ $(document).ready(function () {
 
       $("#level-no").text("Game Over");
 
-      var wrongSound = new Audio("sounds/wrong.mp3");
+      //var wrongSound = new Audio("sounds/wrong.mp3");
+      var wrongSound = new Howl({
+        src: ["sounds/wrong.mp3"],
+      });
       wrongSound.play();
 
       //call the restart function
@@ -149,7 +162,10 @@ $(document).ready(function () {
 
   //PLAY BUTTON SOUND (BASED ON COLOR)
   function playSound(color) {
-    var buttonSound = new Audio("sounds/" + color + ".mp3");
+    //var buttonSound = new Audio("sounds/" + color + ".mp3");
+    var buttonSound = new Howl({
+      src: ["sounds/" + color + ".mp3"],
+    });
     buttonSound.play();
   }
 
