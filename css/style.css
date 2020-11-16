@@ -36,7 +36,7 @@ body {
   line-height: 3.5rem;
   margin: 2.5rem auto;
   margin-bottom: 0;
-  height: 150px;
+  height: 7rem;
 }
 
 #high-score {
@@ -54,7 +54,7 @@ body {
   width: 600px;
   height: 600px;
   background-color: black;
-  margin: 3rem auto;
+  margin: 1rem auto;
   border-radius: 50%;
 }
 
@@ -195,9 +195,9 @@ footer a {
 
 /*MEDIA QUERIES*/
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1300px) {
   #instructions {
-    height: 7rem;
+    height: 5rem;
     margin-bottom: 2rem;
   }
 
@@ -269,6 +269,7 @@ footer a {
 
   #high-score {
     font-size: 1rem;
+    line-height: 1.8rem;
   }
 
   .cntr {
@@ -292,7 +293,7 @@ footer a {
   }
   .red,
   .green {
-    margin-right: 0;
+    margin-right: 3px;
   }
 
   .green,
@@ -329,7 +330,7 @@ footer a {
 
   .red,
   .green {
-    margin-right: -5px;
+    margin-right: -4px;
   }
 
   .green,
