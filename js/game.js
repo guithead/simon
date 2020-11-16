@@ -15,27 +15,14 @@ $(document).ready(function () {
     ACTIONS
   */
 
-  //ACTIONS ON BUTTON PRESS
+  //HIGH SCORE IN LOCAL STORAGE
+  var highScore = localStorage.getItem("highScore");
 
-  $(".btn").on("click", function () {
-    if (!sequenceStarted) {
-      return;
-    } else {
-      var userChosenColor = $(this).attr("id");
-
-      //store user clicks (colors) in userClickedPattern array
-      userClickedPattern.push(userChosenColor);
-
-      //button sound
-      playSound(userChosenColor);
-
-      //pressed button animation function
-      animateButtonPress(userChosenColor);
-
-      //calls fn. checkAnswer, argument = index in array
-      checkAnswer(userClickedPattern.length - 1);
-    }
-  });
+  if (highScore === null) {
+    localStorage.setItem("highScore", "0");
+  } else {
+    updateHighScore();
+  }
 
   //START GAME - KEYBOARD
 
@@ -84,6 +71,28 @@ $(document).ready(function () {
       }
     } else {
       return;
+    }
+  });
+
+  //ACTIONS ON BUTTON PRESS
+
+  $(".btn").on("click", function () {
+    if (!sequenceStarted) {
+      return;
+    } else {
+      var userChosenColor = $(this).attr("id");
+
+      //store user clicks (colors) in userClickedPattern array
+      userClickedPattern.push(userChosenColor);
+
+      //button sound
+      playSound(userChosenColor);
+
+      //pressed button animation function
+      animateButtonPress(userChosenColor);
+
+      //calls fn. checkAnswer, argument = index in array
+      checkAnswer(userClickedPattern.length - 1);
     }
   });
 
@@ -154,6 +163,17 @@ $(document).ready(function () {
       });
       wrongSound.play();
 
+      //update high score in local storage + high score text
+      if (levelNo - 1 > localStorage.getItem("highScore") && levelNo !== 0) {
+        localStorage.setItem("highScore", levelNo - 1);
+        $("#high-score").addClass("new-record");
+
+        setTimeout(function () {
+          $("#high-score").removeClass("new-record");
+        }, 200);
+        updateHighScore();
+      }
+
       //call the restart function
       restart();
     }
@@ -183,5 +203,10 @@ $(document).ready(function () {
     sequenceStarted = false;
     keydown = false;
     touch = false;
+  }
+
+  //UPDATE HIGH SCORE TEXT
+  function updateHighScore() {
+    $("#high-score").text("High Score: " + localStorage.getItem("highScore"));
   }
 });
