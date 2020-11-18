@@ -60,7 +60,7 @@ body {
   justify-content: space-around;
   border-radius: 25%;
   background-color: #000;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 2 px rgba(0, 0, 0, 0.75);
 }
 
 .up,
@@ -68,7 +68,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3%;
+  margin: 4%;
   height: 40%;
 }
 
@@ -211,25 +211,24 @@ footer a {
 
 @media screen and (max-width: 1300px) {
   #instructions {
+    font-size: 1.5rem;
     height: 6rem;
     margin-bottom: 2rem;
   }
 
+  #high-score {
+    font-size: 1.3rem;
+  }
+
   .cntr {
-    width: 450px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
   }
 
   .level {
-    font-size: 1.4rem;
-    line-height: 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
     border: solid 1rem black;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  #instructions {
-    font-size: 1.8rem;
   }
 }
 
@@ -250,7 +249,7 @@ footer a {
   }
 
   .btn-start {
-    margin-top: 5rem;
+    margin-top: 4rem;
     padding: 2rem;
   }
 
@@ -261,13 +260,13 @@ footer a {
   }
 
   footer {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
 
   #instructions {
     font-size: 1rem;
     line-height: 2rem;
-    height: 6rem;
+    height: 4rem;
     margin-bottom: 1.5rem;
   }
 
@@ -290,8 +289,7 @@ footer a {
 
 @media screen and (max-width: 370px) {
   #instructions {
-    height: 8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .cntr {

@@ -40,7 +40,7 @@ $(document).ready(function () {
           src: ["sounds/arkanoid.mp3"],
         });
         arka.play();
-        instructions.text("Follow the pattern by clicking the pads!");
+        instructions.text("Follow the pattern!");
         //wait for arka to play
         setTimeout(nextSequence, 2000);
       }
@@ -65,7 +65,7 @@ $(document).ready(function () {
           src: ["sounds/arkanoid.mp3"],
         });
         arka.play();
-        instructions.text("Follow the pattern by tapping the pads!");
+        instructions.text("Follow the pattern!");
         //wait for arka to play
         setTimeout(nextSequence, 2000);
       }
@@ -151,7 +151,7 @@ $(document).ready(function () {
       }, 200);
 
       //update text
-      instructions.text("Press Any Key to Restart the Game");
+      instructions.text("Press Any Key to Restart");
       //for touch devices to be able to restart by tapping "any key"
       instructions.addClass("any-key");
 
