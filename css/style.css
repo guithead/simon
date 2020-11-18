@@ -213,6 +213,7 @@ footer a {
   #instructions {
     font-size: 1.5rem;
     height: 6rem;
+    margin: 1rem auto;
     margin-bottom: 1rem;
   }
 
@@ -221,8 +222,8 @@ footer a {
   }
 
   .cntr {
-    width: 400px;
-    height: 400px;
+    width: 375px;
+    height: 375px;
   }
 
   .level {
