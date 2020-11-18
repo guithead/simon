@@ -4,6 +4,7 @@ $(document).ready(function () {
     loop: true,
   });
 
+  //PLAY THEME SONG, CHANGE ICON
   function playTheme() {
     if (sound.playing()) {
       $("#play-pause").attr("class", "fas fa-volume-up");

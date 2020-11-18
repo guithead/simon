@@ -33,16 +33,7 @@ $(document).ready(function () {
     if (!keydown) {
       if (!sequenceStarted) {
         keydown = true;
-
-        levelText.text("Get ready");
-
-        var arka = new Howl({
-          src: ["sounds/arkanoid.mp3"],
-        });
-        arka.play();
-        instructions.text("Follow the pattern!");
-        //wait for arka to play
-        setTimeout(nextSequence, 2000);
+        startGame();
       }
     } else {
       return;
@@ -58,16 +49,7 @@ $(document).ready(function () {
     if (!touch) {
       if (!sequenceStarted) {
         touch = true;
-
-        levelText.text("Get ready");
-
-        var arka = new Howl({
-          src: ["sounds/arkanoid.mp3"],
-        });
-        arka.play();
-        instructions.text("Follow the pattern!");
-        //wait for arka to play
-        setTimeout(nextSequence, 2000);
+        startGame();
       }
     } else {
       return;
@@ -100,7 +82,20 @@ $(document).ready(function () {
     FUNCTIONS
   */
 
-  //START NEW GAME/LEVEL
+  //START GAME
+  function startGame() {
+    levelText.text("Get ready");
+
+    var arka = new Howl({
+      src: ["sounds/arkanoid.mp3"],
+    });
+    arka.play();
+    instructions.text("Follow the pattern!");
+    //wait for arka to play, then start newSequence
+    setTimeout(nextSequence, 2000);
+  }
+
+  //START NEW SEQUENCE
   function nextSequence() {
     sequenceStarted = true;
 
