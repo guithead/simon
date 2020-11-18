@@ -213,7 +213,7 @@ footer a {
   #instructions {
     font-size: 1.5rem;
     height: 6rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   #high-score {
@@ -229,6 +229,10 @@ footer a {
     font-size: 1rem;
     line-height: 1.5rem;
     border: solid 1rem black;
+  }
+
+  footer {
+    font-size: 0.8rem;
   }
 }
 
