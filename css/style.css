@@ -138,8 +138,8 @@ body {
 /*INTRO PAGE*/
 
 #intro {
-  min-height: 100vh;
-  width: 100vw;
+  height: 100vh;
+  /*width: 100vw;*/
   color: #fffaf1;
   padding: 0;
 }
@@ -157,7 +157,7 @@ body {
 }
 
 .title {
-  margin-top: auto;
+  margin: auto 0;
 }
 
 .title h1 {
@@ -184,27 +184,19 @@ body {
   margin: 2rem;
 }
 
-@media (hover: hover) {
+/*@media (hover: hover) {
   .btn-start a:hover {
     color: #fffaf1;
     background: #027320;
   }
-}
+}*/
 
+.btn-start a:hover,
 .btn-start a:active,
 .btn-start a:focus {
   color: #fffaf1;
   background: #027320;
   outline: none;
-}
-
-footer {
-  margin-top: auto;
-}
-
-footer a {
-  text-decoration: none;
-  color: inherit;
 }
 
 /*MEDIA QUERIES*/
@@ -230,10 +222,6 @@ footer a {
     font-size: 1rem;
     line-height: 1.5rem;
     border: solid 1rem black;
-  }
-
-  footer {
-    font-size: 0.8rem;
   }
 }
 
@@ -262,10 +250,6 @@ footer a {
     font-size: 0.7rem;
     padding: 1rem;
     margin: 1rem;
-  }
-
-  footer {
-    font-size: 0.5rem;
   }
 
   #instructions {
