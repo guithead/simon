@@ -33,10 +33,10 @@ body {
 #instructions {
   font-size: 2rem;
   color: #fffaf1;
-  line-height: 3.5rem;
-  margin: 2.5rem auto;
-  margin-bottom: 0;
   height: 7rem;
+  line-height: 3.5rem;
+  margin: 1.5rem auto;
+  margin-bottom: 0;
 }
 
 #high-score {
