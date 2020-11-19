@@ -3,7 +3,6 @@ $(document).ready(function () {
     src: ["sounds/theme.mp3"],
     loop: true,
   });
-
   //PLAY THEME SONG, CHANGE ICON
   function playTheme() {
     if (sound.playing()) {
